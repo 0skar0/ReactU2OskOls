@@ -87,7 +87,7 @@ class DashboardComponent extends Component {
         <div className={styles.dashboard}>
           <CardComponent>
             <button
-              className="btn btn-primary mb-2"
+              className={this.state.userStates ? `btn btn-secondary mb-2` : `btn btn-primary mb-2`}
               style={{width: '100%'}}
               onClick={this.toggleActiveInactiveUsers}
             >Show {this.state.userStates ? 'Inactive' : 'Active'} Users</button>
@@ -97,7 +97,7 @@ class DashboardComponent extends Component {
               userStates={this.state.userStates}/>
             <button
               style={{width: '100%'}}
-              className="btn btn-primary"
+              className="btn btn-info"
               onClick={this.toggleColorFunc}
             >Toggle Colors</button>
           </CardComponent>
