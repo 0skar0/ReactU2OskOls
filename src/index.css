@@ -20,6 +20,8 @@ code {
 
 .activatedLink {
   color: black;
+  font-size: 95%;
+  line-height: 1.6;
 }
 
 .centerContent {

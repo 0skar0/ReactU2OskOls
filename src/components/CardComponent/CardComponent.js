@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './cardStyle.module.css';
 import PropTypes from 'prop-types';
 
-//Card-Component som renderar vad som passas in som children. Innehåller i princip bara en wrapper med en toggle-knapp(med ett state)
+//Card-Component som renderar vad som passas in som children. Innehåller i princip bara en wrapper och ett state.
 class CardComponent extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +17,7 @@ class CardComponent extends Component {
       showOrHide: !prevState.showOrHide,
     }))
   }
+
   render() {
     if (this.props.info === 'showContent') {
       return(
@@ -28,7 +29,6 @@ class CardComponent extends Component {
             className="btn btn-secondary"
             onClick={this.toggleContent}
             >{this.state.showOrHide ? 'Hide' : 'Show'} Info</button>
-
           </div>
         </div>
       );

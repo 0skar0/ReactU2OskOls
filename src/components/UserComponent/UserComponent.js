@@ -2,26 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// Funktion som tar emot två props (color och userName). Returnerar (genom map-metoden) ett li-element för varje userName som tas emot. Beroende på om color är true eller false får li-elementet antingen en blå-ish eller grön-ish färg.
-function UserComponent(props) {
 
+//Funktion som tar emot tre props; color, userStates och users. Returnerar (genom map-metoden) ett li-element för varje users som tas emot. Beroende på om color är true eller false får li-elementet antingen en blå-ish eller grön-ish färg. Beroende på om userState är true elr false renderas två olika listor, en med 'true' users eller en med 'false' users.
+
+function UserComponent(props) {
   let color = props.color;
   const trueColor = '#000099';
   const falseColor = '#009933';
   let userState = props.userStates;
 
-  let activeUsers = props.user.filter((users) => {
+  //Filtrear ut min aktiva och inaktiva users med hjälp av filter. Hade även kunnat göra detta i DashboardComponent och skickat med två olika listor med users.
+  let activeUsers = props.users.filter((users) => {
     return  users.isActive ? users : null;
   });
 
-  let inActiveUsers = props.user.filter((users) => {
+  let inActiveUsers = props.users.filter((users) => {
     return  users.isActive ? null : users;
   });
 
-
     return (
       <div>
-
         <ul style={{padding: 0}}>
           {userState ? activeUsers.map((user, i) =>
             <Link
@@ -55,8 +55,10 @@ function UserComponent(props) {
 export default UserComponent;
 
 UserComponent.propTypes = {
-  user: PropTypes.array,
+  users: PropTypes.array,
   name: PropTypes.string,
+  id: PropTypes.number,
+  isActive: PropTypes.bool,
   color: PropTypes.bool,
   userStates: PropTypes.bool,
 }

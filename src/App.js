@@ -10,22 +10,13 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-
       <Router>
         <NavBarComponent/>
-
         <Route path="/" exact component={LoginScreen} />
         <Route path="/dashboard" component={DashBoardScreen} />
         <Route path="/user/:id" component={UserScreen}/>
         <Route path="/user" exact component={UserScreen}/>
-
-
-
-
-
       </Router>
-
-
     );
   }
 }
