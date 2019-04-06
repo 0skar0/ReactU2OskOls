@@ -11,7 +11,7 @@ function UserComponent(props) {
   const falseColor = '#009933';
   let userState = props.userStates;
 
-  //Filtrear ut min aktiva och inaktiva users med hjälp av filter. Hade även kunnat göra detta i DashboardComponent och skickat med två olika listor med users.
+  //Filtrerar ut min aktiva och inaktiva users med hjälp av filter. Hade även kunnat göra detta i DashboardComponent och skickat med två olika listor med users.
   let activeUsers = props.users.filter((users) => {
     return  users.isActive ? users : null;
   });
